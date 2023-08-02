@@ -1,0 +1,19 @@
+name: Testing actions
+
+on:
+  push:
+    branches: [ main ]
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    #checkout repo then echo hello world to the log
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+
+      - name: Hello world
+        run: echo "Hello world"
+        
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
