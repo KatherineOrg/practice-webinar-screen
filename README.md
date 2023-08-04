@@ -1,4 +1,4 @@
-# Doggy Directory TESTING
+# Doggy Directory TESTING YML
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
