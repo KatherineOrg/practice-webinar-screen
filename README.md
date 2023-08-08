@@ -1,4 +1,4 @@
-# Doggy Directory TESTING YML
+# Doggy Directory TEST YML WORKFLOW
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
