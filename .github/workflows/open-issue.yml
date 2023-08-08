@@ -1,0 +1,33 @@
+# Define a GitHub workflow to build and test a React app and open issue if tests pass
+# Use pull request trigger to run workflow on pull request
+# Use ubuntu latest
+
+name: Build and test React app then open issue
+on: 
+  pull_request:
+    branches:
+      - main
+# First step of job is to checkout the code
+# Second step is to install dependencies
+# Third step is to build the app
+# Fourth step is to run tests
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Build app
+        run: npm run build
+      - name: Run tests
+        run: npm run test
+# Fifth step is if tests pass, open issue using GitHub CLI
+# Use GitHub CLI to create issue
+      - name: Create issue 
+        if: ${{ success() }}
+        run: |
+          gh issue create --title "Tests passed" --body "All tests passed, awaiting approval"
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
